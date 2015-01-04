@@ -1,10 +1,13 @@
 require 'faraday'
-require 'json'
+require 'multi_json'
+require 'stat_hat/json/response'
 
 module StatHat
   module Json
     module SyncApi
       extend self
+
+      attr_accessor :ez_key
 
       EZ_URL = 'https://api.stathat.com'.freeze
       EZ_URI = '/ez'.freeze
@@ -30,24 +33,20 @@ module StatHat
           req.body                    = build_post_data(stats)
         end
 
-        yield response if block_given?
-        response
+        StatHat::Json::Response.new response
       end
 
-      def post_count(stat, count, t=nil, &block)
-        post_stats(stat: stat, count: count, t: t, &block)
+      def post_count(stat, count=1, t=nil)
+        post_stats(stat: stat, count: count, t: t)
       end
 
-      def post_value(stat, value, t=nil, &block)
-        post_stats(stat: stat, value: value, t: t, &block)
+      def post_value(stat, value, t=nil)
+        post_stats(stat: stat, value: value, t: t)
       end
 
       def build_post_data(stats)
         stats = [stats].flatten
-        {
-            ezkey: ez_key,
-            data:  stats
-        }.to_json
+        MultiJson.dump({ ezkey: ez_key, data: stats })
       end
     end
   end

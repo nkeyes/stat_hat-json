@@ -1,5 +1,6 @@
 require 'stat_hat/json/publisher'
 require 'stat_hat/json/sync_api'
+require 'stat_hat/json/response'
 
 module StatHat
   module Json
@@ -12,7 +13,19 @@ module StatHat
           @pool.future
         end
 
-        def_delegators :future, *StatHat::Json::Publisher.delegates
+        def post_stats(stats)
+          StatHat::Json::Response.new(future.post_stats(stats))
+        end
+
+        def post_count(stat, count=1, t=nil)
+          StatHat::Json::Response.new(future.post_count(stat, count, t))
+        end
+
+        def post_value(stat, value, t=nil)
+          StatHat::Json::Response.new(future.post_value(stat, value, t))
+        end
+
+        def_delegators :future, *(StatHat::Json::Publisher.delegates - [:post_stats, :post_count, :post_value])
       end
     end
   end

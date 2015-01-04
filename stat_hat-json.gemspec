@@ -24,5 +24,6 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'celluloid-io', '~> 0.16'
   spec.add_dependency 'faraday', '~> 0.9'
+  spec.add_dependency 'multi_json', '~> 1.10'
   spec.add_dependency 'net-http-persistent', '~> 2.9'
 end
