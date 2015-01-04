@@ -1,7 +1,6 @@
-require "stat_hat/json/version"
+Dir["#{File.dirname(__FILE__)}/#{File.basename(__FILE__, '.rb')}/*.rb"].each {|file| require file }
 
 module StatHat
   module Json
-    # Your code goes here...
   end
 end

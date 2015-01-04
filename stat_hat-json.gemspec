@@ -4,20 +4,25 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'stat_hat/json/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "stat_hat-json"
+  spec.name          = 'stat_hat-json'
   spec.version       = StatHat::Json::VERSION
-  spec.authors       = ["Nathan Keyes"]
-  spec.email         = ["nathan.keyes@avantcredit.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
-  spec.license       = "MIT"
+  spec.authors       = ['Nathan Keyes']
+  spec.email         = ['nkeyes@gmail.com']
+  spec.summary       = %q{StatHat JSON API Client.}
+  spec.description   = %q{StatHat JSON API Client.}
+  spec.homepage      = ''
+  spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
-  spec.require_paths = ["lib"]
+  spec.require_paths = ['lib']
 
-  spec.add_development_dependency "bundler", "~> 1.7"
-  spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency 'bundler', '~> 1.7'
+  spec.add_development_dependency 'rake', '~> 10.0'
+  spec.add_development_dependency 'rspec', '~> 3.1'
+
+  spec.add_dependency 'celluloid-io', '~> 0.16'
+  spec.add_dependency 'faraday', '~> 0.9'
+  spec.add_dependency 'net-http-persistent', '~> 2.9'
 end
