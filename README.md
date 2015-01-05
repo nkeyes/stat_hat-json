@@ -52,8 +52,8 @@ StatHat::Json::Api.post_value('value_stat1', 3.14159) # delicious Pi
 
 ```
 #### Short lived processes
-`Stathat::Json::Api` uses [Celluloid::IO](https://github.com/celluloid/celluloid-io) for threading and async network IO for long runing processes.  
-Use `Stathat::Json::SyncApi` for short lived processes, the API is identical.
+`StatHat::Json::Api` uses [Celluloid::IO](https://github.com/celluloid/celluloid-io) for threading and async network IO for long runing processes.  
+Use `StatHat::Json::SyncApi` for short lived processes, the API is identical.
 
 ## Tested with the following Rubies
 * 1.9.3
