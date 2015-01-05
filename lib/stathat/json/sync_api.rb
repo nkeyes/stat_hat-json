@@ -7,13 +7,15 @@ module StatHat
     module SyncApi
       extend self
 
-      attr_accessor :ez_key
-
       EZ_URL = 'https://api.stathat.com'.freeze
       EZ_URI = '/ez'.freeze
 
       def ez_key
-        @ez_key ||= ENV['STATHAT_EZKEY']
+        @@ez_key ||= ENV['STATHAT_EZKEY']
+      end
+
+      def ez_key=(val)
+        @@ez_key = val
       end
 
       def connection

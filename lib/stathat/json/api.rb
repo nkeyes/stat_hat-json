@@ -8,6 +8,10 @@ module StatHat
       class << self
         extend Forwardable
 
+        def sync_api
+          StatHat::Json::SyncApi
+        end
+
         def future
           @pool ||= StatHat::Json::Publisher.pool(size: ENV['STATHAT_PUBLISHER_POOL_SIZE'] || 10)
           @pool.future
@@ -25,7 +29,7 @@ module StatHat
           StatHat::Json::Response.new(future.post_value(stat, value, t))
         end
 
-        def_delegators :future, *(StatHat::Json::Publisher.delegates - [:post_stats, :post_count, :post_value])
+        def_delegators :sync_api, *(StatHat::Json::SyncApi.public_instance_methods(false) - [:post_stats, :post_count, :post_value])
       end
     end
   end
