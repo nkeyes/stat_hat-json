@@ -1,6 +1,12 @@
 # StatHat::Json
 
-TODO: Write a gem description
+StatHat JSON API Client.
+
+[![Build Status](https://travis-ci.org/nkeyes/stathat-json.png?branch=master)](https://travis-ci.org/nkeyes/stathat-json)
+[![Gem Version](https://badge.fury.io/rb/stathat-json.png)](http://badge.fury.io/rb/stathat-json)
+[![Dependency Status](https://gemnasium.com/nkeyes/stathat-json.svg)](https://gemnasium.com/nkeyes/stathat-json)
+[![Code Climate](https://codeclimate.com/github/nkeyes/stathat-json/badges/gpa.svg)](https://codeclimate.com/github/nkeyes/stathat-json)
+[![Test Coverage](https://codeclimate.com/github/nkeyes/stathat-json/badges/coverage.svg)](https://codeclimate.com/github/nkeyes/stathat-json)
 
 ## Installation
 
