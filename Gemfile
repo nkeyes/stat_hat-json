@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in stat_hat-json.gemspec
+# Specify your gem's dependencies in stathat-json.gemspec
 gemspec

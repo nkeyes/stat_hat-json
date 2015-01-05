@@ -1,6 +1,6 @@
 require 'faraday'
 require 'multi_json'
-require 'stat_hat/json/response'
+require 'stathat/json/response'
 
 module StatHat
   module Json

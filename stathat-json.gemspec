@@ -1,10 +1,10 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'stat_hat/json/version'
+require 'stathat/json/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'stat_hat-json'
+  spec.name          = 'stathat-json'
   spec.version       = StatHat::Json::VERSION
   spec.authors       = ['Nathan Keyes']
   spec.email         = ['nkeyes@gmail.com']

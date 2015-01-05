@@ -1,4 +1,4 @@
-require 'stat_hat/json/sync_api'
+require 'stathat/json/sync_api'
 require 'celluloid/io'
 
 module StatHat

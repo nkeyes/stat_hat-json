@@ -1,6 +1,6 @@
-require 'stat_hat/json/publisher'
-require 'stat_hat/json/sync_api'
-require 'stat_hat/json/response'
+require 'stathat/json/publisher'
+require 'stathat/json/sync_api'
+require 'stathat/json/response'
 
 module StatHat
   module Json
