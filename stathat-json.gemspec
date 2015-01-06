@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['nkeyes@gmail.com']
   spec.summary       = %q{StatHat JSON API Client.}
   spec.description   = %q{StatHat JSON API Client.}
-  spec.homepage      = ''
+  spec.homepage      = 'https://github.com/nkeyes/stathat-json'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")
