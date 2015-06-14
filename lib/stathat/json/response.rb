@@ -6,12 +6,14 @@ module StatHat
     class Response
 
       attr_accessor :future, :body, :status, :message, :multiple
+      attr_reader :raw_response, :parsed_body
 
       alias_method :msg, :message
       alias_method :msg=, :message=
 
       def initialize(response)
-        @parsed = false
+        @raw_response = response
+        @parsed_body  = nil
         case response
           when Celluloid::Future
             @future = response
@@ -28,8 +30,17 @@ module StatHat
       end
 
       def status
-        _parse
+        @status ||= if future
+                      future.value.status
+                    elsif raw_response.respond_to?(:status)
+                      raw_response.status
+                    end
         @status
+      end
+
+      def parsed_body
+        _parse
+        @parsed_body
       end
 
       def message
@@ -48,16 +59,16 @@ module StatHat
 
       private
       def _parse
-        return if @parsed
+        return if @parsed_body
 
-        parsed_body = MultiJson.load(body)
+        @parsed_body = MultiJson.load(body) rescue nil
 
-        parsed_body.each_pair do |k, v|
-          setter = "#{k}="
-          public_send(setter, v) if respond_to? setter
+        if @parsed_body.respond_to?(:each_pair)
+          @parsed_body.each_pair do |k, v|
+            setter = "#{k}="
+            public_send(setter, v) if respond_to? setter
+          end
         end
-
-        @parsed = true
       end
     end
   end
