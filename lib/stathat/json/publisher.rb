@@ -1,4 +1,5 @@
 require 'stathat/json/sync_api'
+require 'celluloid/current'
 require 'celluloid/io'
 
 module StatHat
