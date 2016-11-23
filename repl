@@ -1,0 +1,3 @@
+#!/bin/sh
+
+irb -Ilib -r 'stathat/json' -r 'awesome_print'

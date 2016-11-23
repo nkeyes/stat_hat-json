@@ -7,7 +7,7 @@ module StatHat
       describe '.initialize_connection' do
         it 'should use net_http_persistent' do
           expect_any_instance_of(Faraday::Connection).to receive(:adapter).with(:net_http_persistent)
-          subject.connection
+          subject.ez_connection
         end
       end
 
